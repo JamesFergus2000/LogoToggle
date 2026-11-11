@@ -156,98 +156,84 @@
               <path transform="translate(278 172) scale(3.5)" d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701" fill="#ffffff"/>
             </g>
           </svg>
-          <ol class="dots">
-            <li data-dot="0"></li><li data-dot="1"></li><li data-dot="2"></li><li data-dot="3"></li><li data-dot="4"></li>
-          </ol>
         </div>
       </div>
 
       <!-- RIGHT: glass cards that drive the MacBook as they scroll into view -->
-      <div class="steps" id="modes">
-        <article class="step step-intro" data-mode="breathe" data-step="0">
-          <h1 class="eyebrow">Control the glowing Apple logo on your MacBook Pro</h1>
-          <p class="hero-title">Light it up.<br>From behind.</p>
-          <p class="lede">LogoToggle is a free menu bar app for the illuminated logo on the new MacBook Pro. Turn it off, turn it on, make it breathe or make it strobe. Scroll to see each one.</p>
-          <div class="cta-row">
-            <a class="btn btn-light" href="#install">Install LogoToggle</a>
-            <a class="btn btn-glass" href="https://github.com/JamesFergus2000/LogoToggle">View on GitHub</a>
-          </div>
-          <p class="scroll-hint" aria-hidden="true">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
-            Scroll
-          </p>
-        </article>
-
-        <article class="step" data-mode="off" data-step="1">
-          <div class="card glass">
-            <div class="menu">
-              <div class="menu-status">Logo light is off</div>
-              <div class="mi">Logo on</div>
-              <div class="mi sel">Logo off</div>
-              <div class="mi">Breathe <span>›</span></div>
-              <div class="mi">Strobe <span>›</span></div>
-            </div>
-            <p class="step-num">01 · Off</p>
-            <h2>Lights out.</h2>
-            <p>Watching a film, or just want a stealthier Mac? Turn off the glowing Apple logo from the menu bar and it stays off, even after you restart.</p>
-          </div>
-        </article>
-
-        <article class="step" data-mode="on" data-step="2">
-          <div class="card glass">
-            <div class="menu">
-              <div class="menu-status">Logo light is on</div>
-              <div class="mi sel">Logo on</div>
-              <div class="mi">Logo off</div>
-              <div class="mi">Breathe <span>›</span></div>
-              <div class="mi">Strobe <span>›</span></div>
-            </div>
-            <p class="step-num">02 · On</p>
-            <h2>Back on.</h2>
-            <p>One click brings the glow back. It still follows your screen brightness and the light in the room, just as macOS intended.</p>
-          </div>
-        </article>
-
-        <article class="step" data-mode="breathe" data-step="3">
-          <div class="card glass">
-            <div class="menu">
-              <div class="menu-status">Breathe (<span id="speed-label">medium</span>)</div>
-              <div class="mi">Stop breathe</div>
-              <div class="mi sel">Breathe <span>›</span></div>
-              <div class="speeds" role="group" aria-label="Breathe speed">
-                <button type="button" class="chip" data-speed="6s">Slow</button>
-                <button type="button" class="chip" data-speed="4s" aria-pressed="true">Medium</button>
-                <button type="button" class="chip" data-speed="2s">Fast</button>
-              </div>
-            </div>
-            <p class="step-num">03 · Breathe</p>
-            <h2>Let it breathe.</h2>
-            <p>A slow, smooth fade in and out, using the light's own hardware fades. Try the speeds; the MacBook follows.</p>
-          </div>
-        </article>
-
-        <article class="step" data-mode="strobe" data-step="4">
-          <div class="card glass">
-            <div class="menu">
-              <div class="menu-status">Strobe (slow)</div>
-              <div class="mi">Stop strobe</div>
-              <div class="mi sel">Strobe <span>›</span></div>
-              <div class="mi sub">Slow · Medium · Fast</div>
-            </div>
-            <p class="step-num">04 · Strobe</p>
-            <h2>Or make it flash.</h2>
-            <p>Hard on, hard off, up to four times a second. Perfect for a party, less so for a meeting.</p>
-            <p class="warn">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 9v4"/><path d="M12 17h.01"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg>
-              Flashing light. This preview runs slowly; take care if you're sensitive to it.
-            </p>
-          </div>
-        </article>
+      <!-- Invisible scroll triggers: each one drives the panel + the 3D Mac -->
+      <div class="steps" id="modes" aria-hidden="true">
+        <div class="step" data-mode="breathe" data-step="0"></div>
+        <div class="step" data-mode="off" data-step="1"></div>
+        <div class="step" data-mode="on" data-step="2"></div>
+        <div class="step" data-mode="breathe" data-step="3"></div>
+        <div class="step" data-mode="strobe" data-step="4"></div>
       </div>
+
+      <!-- One liquid-glass panel that morphs as you scroll -->
+      <aside class="panel liquid" id="panel" data-step="0" aria-label="LogoToggle overview">
+        <div class="panel-copy" id="panel-copy">
+          <div class="pc on" data-for="0">
+            <h1 class="eyebrow-pill">Glowing logo control for MacBook Pro</h1>
+            <p class="hero-title">Light it up.<br>From behind.</p>
+            <p class="pc-body">LogoToggle is a free menu bar app for the glowing Apple logo on the new MacBook Pro. Turn it off, turn it on, make it breathe or make it strobe.</p>
+            <div class="cta-row">
+              <a class="btn btn-light" href="#install">Install LogoToggle</a>
+              <a class="btn btn-glass" href="https://github.com/JamesFergus2000/LogoToggle">View on GitHub</a>
+            </div>
+          </div>
+          <div class="pc" data-for="1">
+            <p class="pc-num">01 · Off</p>
+            <h2>Lights out.</h2>
+            <p class="pc-body">Watching a film, or just want a stealthier Mac? Turn off the glowing Apple logo from the menu bar and it stays off, even after you restart.</p>
+          </div>
+          <div class="pc" data-for="2">
+            <p class="pc-num">02 · On</p>
+            <h2>Back on.</h2>
+            <p class="pc-body">One click brings the glow back. It still follows your screen brightness and the light in the room, just as macOS intended.</p>
+          </div>
+          <div class="pc" data-for="3">
+            <p class="pc-num">03 · Breathe</p>
+            <h2>Let it breathe.</h2>
+            <p class="pc-body">A slow, smooth fade in and out, using the light's own hardware fades. Try the speeds below.</p>
+          </div>
+          <div class="pc" data-for="4">
+            <p class="pc-num">04 · Strobe</p>
+            <h2>Or make it flash.</h2>
+            <p class="pc-body">Hard on, hard off, up to four times a second. Perfect for a party, less so for a meeting.</p>
+          </div>
+        </div>
+
+        <div class="panel-menu">
+          <div class="panel-menu-inner">
+            <div class="menu-status"><span id="status-text">Logo light is on</span></div>
+            <div class="rows" id="rows">
+              <span class="sel-pill" id="sel-pill" aria-hidden="true"></span>
+              <button class="row" type="button" data-row="on" data-go="2">Logo on</button>
+              <button class="row" type="button" data-row="off" data-go="1">Logo off</button>
+              <button class="row" type="button" data-row="breathe" data-go="3">Breathe <span aria-hidden="true">›</span></button>
+              <div class="reveal-wrap" data-show="3">
+                <div class="reveal-inner">
+                  <div class="speeds" role="group" aria-label="Breathe speed">
+                    <button type="button" class="chip" data-speed="6s">Slow</button>
+                    <button type="button" class="chip" data-speed="4s" aria-pressed="true">Medium</button>
+                    <button type="button" class="chip" data-speed="2s">Fast</button>
+                  </div>
+                </div>
+              </div>
+              <button class="row" type="button" data-row="strobe" data-go="4">Strobe <span aria-hidden="true">›</span></button>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel-foot">
+          <div class="progress" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+          <span class="panel-hint" id="panel-hint">Scroll to explore</span>
+        </div>
+      </aside>
     </section>
 
     <!-- INSTALL -->
-    <section class="install" id="install" aria-labelledby="install-title">
+    <section class="install liquid" id="install" aria-labelledby="install-title">
       <h2 id="install-title" class="section-title">Install in one line.</h2>
       <p class="section-sub">Open Terminal, paste this, press Return. LogoToggle downloads, installs into Applications and appears in your menu bar.</p>
 
@@ -279,7 +265,7 @@
     </section>
 
     <!-- FAQ -->
-    <section class="faq" id="faq" aria-labelledby="faq-title">
+    <section class="faq liquid" id="faq" aria-labelledby="faq-title">
       <h2 id="faq-title" class="section-title">Questions.</h2>
       <div class="faq-list">
         <details class="glass">
@@ -308,9 +294,17 @@
 
   <footer class="footer">
     <p><a href="turn-off-glowing-apple-logo-macbook-pro/">How to turn off the glowing Apple logo</a> · Built on research from <a href="https://github.com/Ark0N/LogoLight">LogoLight</a>. MIT licensed. <a href="https://github.com/JamesFergus2000/LogoToggle">Source on GitHub</a>.</p>
-    <p>Not affiliated with or endorsed by Apple Inc. MacBook Pro is a trademark of Apple Inc.</p>
+    <p>3D model: <a href="https://sketchfab.com/3d-models/macbook-pro-14-inch-m5-652a992f4f244122ae251f9cbb81da1e">MacBook Pro 14-inch M5</a> by Apple User on Sketchfab (Free Standard licence), modified.</p>
+    <p>Not affiliated with or endorsed by Apple Inc. Apple, MacBook Pro and the Apple logo are trademarks of Apple Inc.</p>
   </footer>
 
+  <script type="importmap">
+  { "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+  } }
+  </script>
   <script src="app.js"></script>
+  <script type="module" src="scene.js"></script>
 </body>
 </html>
