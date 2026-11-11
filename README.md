@@ -1,5 +1,7 @@
 # LogoToggle
 
+**Website:** https://jamesfergus2000.github.io/LogoToggle/
+
 A tiny menu bar app for the illuminated Apple logo on the MacBook Pro with PROLED XDR Display.
 
 - **On / off**: no password needed

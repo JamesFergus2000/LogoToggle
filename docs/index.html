@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LogoToggle — light up the back of your MacBook Pro</title>
+  <meta name="description" content="A tiny, free menu bar app to turn the illuminated logo on the new MacBook Pro on or off, make it breathe, or strobe. No password needed.">
+  <meta name="theme-color" content="#000000">
+  <meta property="og:title" content="LogoToggle">
+  <meta property="og:description" content="On, off, breathe or strobe the illuminated logo on the new MacBook Pro, straight from the menu bar.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-mode="breathe">
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="nav-wrap">
+    <nav class="nav glass" aria-label="Main">
+      <a class="brand" href="#top">
+        <span class="brand-dot" aria-hidden="true"></span>LogoToggle
+      </a>
+      <div class="nav-links">
+        <a href="#demo">Try it</a>
+        <a href="#features">Features</a>
+        <a href="#install">Install</a>
+        <a href="#faq">FAQ</a>
+        <a href="https://github.com/JamesFergus2000/LogoToggle">GitHub</a>
+      </div>
+      <a class="btn btn-light btn-sm" href="https://github.com/JamesFergus2000/LogoToggle/releases/latest/download/LogoToggle.zip">Download</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero" id="top">
+      <p class="eyebrow">For MacBook Pro with PROLED XDR Display</p>
+      <h1>Light it up.<br>From behind.</h1>
+      <p class="lede">A tiny menu bar app for the glowing logo on the new MacBook Pro. On, off, breathe or strobe. No password.</p>
+
+      <div class="stage" id="stage" aria-hidden="true">
+        <div class="floor"></div>
+        <div class="laptop" id="laptop">
+          <div class="lid">
+            <div class="face back">
+              <!-- Swap this element for your own lid photo/video if you like -->
+              <div class="mark light"></div>
+            </div>
+            <div class="face front"><div class="screen"></div></div>
+          </div>
+          <div class="base"><div class="keys"></div><div class="pad"></div></div>
+          <div class="edge"></div>
+        </div>
+      </div>
+
+      <div class="cta-row">
+        <a class="btn btn-light" href="https://github.com/JamesFergus2000/LogoToggle/releases/latest/download/LogoToggle.zip">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+          Download for Mac
+        </a>
+        <a class="btn btn-glass" href="https://github.com/JamesFergus2000/LogoToggle">View on GitHub</a>
+      </div>
+      <p class="fineprint">Free and open source · macOS 27+ · Apple silicon</p>
+    </section>
+
+    <!-- DEMO -->
+    <section class="demo" id="demo" aria-labelledby="demo-title">
+      <div class="demo-copy">
+        <p class="eyebrow eyebrow-blue">Try it</p>
+        <h2 id="demo-title">Click here.<br>Glow there.</h2>
+        <p>Everything lives in one menu bar menu. Pick a mode and watch the laptop above, or the light behind the glass.</p>
+        <p class="warn" id="strobe-warn" hidden>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 9v4"/><path d="M12 17h.01"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg>
+          Strobe flashes. This demo runs it slowly; take care if you're sensitive to flashing light.
+        </p>
+      </div>
+
+      <div class="demo-ui">
+        <div class="demo-glow light" aria-hidden="true"></div>
+        <div class="menubar glass" aria-hidden="true">
+          <span>Wi-Fi</span><span>Battery</span>
+          <span class="mb-icon"><span class="brand-dot"></span></span>
+          <span id="clock">Wed 14:32</span>
+        </div>
+        <div class="menu glass" role="group" aria-label="LogoToggle menu demo">
+          <div class="menu-status" id="menu-status" aria-live="polite">Breathe (medium)</div>
+          <div class="menu-sep"></div>
+          <button class="mi" data-set="on" type="button">Logo on</button>
+          <button class="mi" data-set="off" type="button">Logo off</button>
+          <button class="mi" data-set="breathe" type="button">Breathe <span>Slow · Med · Fast</span></button>
+          <button class="mi" data-set="strobe" type="button">Strobe <span>Slow · Med · Fast</span></button>
+          <div class="menu-sep"></div>
+          <div class="menu-foot">No password. No Dock icon.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="features" id="features" aria-labelledby="features-title">
+      <h2 id="features-title" class="section-title">Small app.<br>Big glow.</h2>
+      <div class="bento">
+        <article class="tile glass tile-wide">
+          <p class="eyebrow">On and off</p>
+          <h3>One click.<br>No password.</h3>
+          <p>LogoToggle talks straight to the macOS brightness service, so there's no admin prompt every time you flip it.</p>
+        </article>
+        <article class="tile glass">
+          <div class="mini mini-breathe" aria-hidden="true"></div>
+          <h3>Breathe</h3>
+          <p>Real hardware fades in and out. Slow, medium or fast.</p>
+        </article>
+        <article class="tile glass">
+          <div class="mini mini-strobe" aria-hidden="true"></div>
+          <h3>Strobe</h3>
+          <p>For when the room needs it. Mind anyone sensitive to flashing light.</p>
+        </article>
+        <article class="tile glass">
+          <p class="big">1 file</p>
+          <p>About 250 lines of Swift. No dependencies. MIT licensed. Read every line before you run it.</p>
+        </article>
+        <article class="tile glass">
+          <p class="big">Menu bar</p>
+          <p>No Dock icon, no windows. Stops its effects when the display sleeps and restores your logo when you quit.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- INSTALL -->
+    <section class="install" id="install" aria-labelledby="install-title">
+      <h2 id="install-title" class="section-title">Up and running<br>in a minute.</h2>
+      <div class="install-grid">
+        <div class="tile glass">
+          <h3>Download</h3>
+          <ol>
+            <li><a href="https://github.com/JamesFergus2000/LogoToggle/releases/latest/download/LogoToggle.zip">Download LogoToggle.zip</a> and unzip it.</li>
+            <li>Move <strong>LogoToggle.app</strong> to Applications.</li>
+            <li>Open it. The first time, macOS will block it because it isn't notarized. Go to <strong>System Settings → Privacy &amp; Security</strong> and click <strong>Open Anyway</strong>.</li>
+          </ol>
+          <p class="muted">Or clear the quarantine flag in Terminal:</p>
+          <div class="code">
+            <code id="cmd-xattr">xattr -dr com.apple.quarantine /Applications/LogoToggle.app</code>
+            <button class="copy" type="button" data-copy="cmd-xattr">Copy</button>
+          </div>
+        </div>
+        <div class="tile glass">
+          <h3>Build from source</h3>
+          <p class="muted">Needs the Xcode Command Line Tools. Apps you build yourself skip the Gatekeeper prompt.</p>
+          <div class="code">
+            <code id="cmd-build">git clone https://github.com/JamesFergus2000/LogoToggle.git &amp;&amp; cd LogoToggle &amp;&amp; ./build.sh --install</code>
+            <button class="copy" type="button" data-copy="cmd-build">Copy</button>
+          </div>
+          <p class="muted">To start it at login, add it in <strong>System Settings → General → Login Items</strong>.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq" id="faq" aria-labelledby="faq-title">
+      <h2 id="faq-title" class="section-title">Questions.</h2>
+      <div class="faq-list">
+        <details class="glass">
+          <summary>Which Macs does it work on?</summary>
+          <p>MacBook Pro models with the PROLED XDR Display and the illuminated logo, running macOS 27 or later. On other Macs there's no logo light to control.</p>
+        </details>
+        <details class="glass">
+          <summary>Is it safe?</summary>
+          <p>It only sends the logo-light settings to the macOS brightness service (and, during Breathe, tells the keyboard backlight to stay lit). It needs no admin rights, installs nothing else, and the whole app is a single Swift file you can read on GitHub. Quitting it, or choosing Stop, puts the logo back the way it was.</p>
+        </details>
+        <details class="glass">
+          <summary>Could a macOS update break it?</summary>
+          <p>Possibly. It uses an undocumented system interface. If that disappears, on/off falls back to the command from Apple's support article, which asks for your password, and the effects stop working until there's an update.</p>
+        </details>
+        <details class="glass">
+          <summary>Why isn't it on the Mac App Store?</summary>
+          <p>Apps on the App Store can't use private system interfaces, which is the only way to control the logo without a password.</p>
+        </details>
+        <details class="glass">
+          <summary>Can I set the logo's brightness?</summary>
+          <p>Not in LogoToggle. If you want brightness, sound-reactive mode, Morse code or Control Center controls, use <a href="https://github.com/Ark0N/LogoLight">LogoLight</a>, the project whose research LogoToggle builds on.</p>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Built on research from <a href="https://github.com/Ark0N/LogoLight">LogoLight</a>. MIT licensed. <a href="https://github.com/JamesFergus2000/LogoToggle">Source on GitHub</a>.</p>
+    <p>Not affiliated with or endorsed by Apple Inc. MacBook Pro is a trademark of Apple Inc.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
