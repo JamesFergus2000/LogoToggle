@@ -3,13 +3,70 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>LogoToggle — light up the back of your MacBook Pro</title>
-  <meta name="description" content="A tiny, free menu bar app to turn the illuminated logo on the new MacBook Pro on or off, make it breathe, or strobe.">
+  <title>LogoToggle: turn off, dim or pulse the glowing Apple logo on MacBook Pro</title>
+  <meta name="description" content="Free menu bar app for the illuminated Apple logo on the new MacBook Pro (PROLED XDR). Turn the glowing logo off or on in one click, or make it breathe or strobe. Open source, installs in one line.">
+  <meta name="keywords" content="turn off glowing Apple logo MacBook Pro, MacBook Pro illuminated logo, disable Apple logo light, MacBook Pro logo light off, LEBacklightMode, PROLED XDR logo, MacBook Pro glowing logo app">
+  <link rel="canonical" href="https://jamesfergus2000.github.io/LogoToggle/">
+  <meta name="robots" content="index, follow, max-image-preview:large">
   <meta name="theme-color" content="#000000">
-  <meta property="og:title" content="LogoToggle">
-  <meta property="og:description" content="On, off, breathe or strobe the illuminated logo on the new MacBook Pro, straight from the menu bar.">
+  <meta name="author" content="James Fergus">
+
   <meta property="og:type" content="website">
+  <meta property="og:site_name" content="LogoToggle">
+  <meta property="og:title" content="LogoToggle: control the glowing Apple logo on MacBook Pro">
+  <meta property="og:description" content="Turn the illuminated logo on the new MacBook Pro off or on in one click, or make it breathe or strobe. Free and open source.">
+  <meta property="og:url" content="https://jamesfergus2000.github.io/LogoToggle/">
+  <meta property="og:image" content="https://jamesfergus2000.github.io/LogoToggle/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="LogoToggle: control the glowing logo on MacBook Pro">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="LogoToggle: control the glowing Apple logo on MacBook Pro">
+  <meta name="twitter:description" content="On, off, breathe or strobe the illuminated logo on the new MacBook Pro, from the menu bar. Free and open source.">
+  <meta name="twitter:image" content="https://jamesfergus2000.github.io/LogoToggle/og-image.png">
+
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "SoftwareApplication",
+        "name": "LogoToggle",
+        "description": "Free menu bar app to turn the illuminated Apple logo on the new MacBook Pro on or off, or make it breathe or strobe.",
+        "url": "https://jamesfergus2000.github.io/LogoToggle/",
+        "downloadUrl": "https://github.com/JamesFergus2000/LogoToggle/releases/latest/download/LogoToggle.zip",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "macOS 27 or later",
+        "softwareRequirements": "MacBook Pro with PROLED XDR Display, Apple silicon",
+        "softwareVersion": "1.0.0",
+        "license": "https://opensource.org/licenses/MIT",
+        "isAccessibleForFree": true,
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "author": { "@type": "Person", "name": "James Fergus", "url": "https://github.com/JamesFergus2000" },
+        "codeRepository": "https://github.com/JamesFergus2000/LogoToggle",
+        "image": "https://jamesfergus2000.github.io/LogoToggle/og-image.png"
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          { "@type": "Question", "name": "How do I turn off the glowing Apple logo on my MacBook Pro?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Install LogoToggle and choose Turn logo off from its menu bar icon. Without an app, Apple's documented method is to run sudo defaults write com.apple.CoreBrightness LEBacklightMode -int 0 in Terminal; sudo defaults delete com.apple.CoreBrightness LEBacklightMode turns it back on." } },
+          { "@type": "Question", "name": "Can I change the brightness of the MacBook Pro logo?",
+            "acceptedAnswer": { "@type": "Answer", "text": "macOS has no brightness setting for the logo. It dims and brightens automatically with your screen brightness and the ambient light in the room." } },
+          { "@type": "Question", "name": "Which Macs have the illuminated logo?",
+            "acceptedAnswer": { "@type": "Answer", "text": "MacBook Pro models with the PROLED XDR Display, running macOS 27 or later." } },
+          { "@type": "Question", "name": "Is LogoToggle free?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes. LogoToggle is free and open source under the MIT licence." } }
+        ]
+      }
+    ]
+  }
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -101,9 +158,9 @@
       <!-- RIGHT: glass cards that drive the MacBook as they scroll into view -->
       <div class="steps" id="modes">
         <article class="step step-intro" data-mode="breathe" data-step="0">
-          <p class="eyebrow">For MacBook Pro with PROLED XDR Display</p>
-          <h1>Light it up.<br>From behind.</h1>
-          <p class="lede">A tiny menu bar app for the glowing logo on the new MacBook Pro. Scroll to see what it does.</p>
+          <h1 class="eyebrow">Control the glowing Apple logo on your MacBook Pro</h1>
+          <p class="hero-title">Light it up.<br>From behind.</p>
+          <p class="lede">LogoToggle is a free menu bar app for the illuminated logo on the new MacBook Pro. Turn it off, turn it on, make it breathe or make it strobe. Scroll to see each one.</p>
           <div class="cta-row">
             <a class="btn btn-light" href="#install">Install LogoToggle</a>
             <a class="btn btn-glass" href="https://github.com/JamesFergus2000/LogoToggle">View on GitHub</a>
@@ -125,7 +182,7 @@
             </div>
             <p class="step-num">01 · Off</p>
             <h2>Lights out.</h2>
-            <p>Watching a film, or just want a stealthier Mac? Switch the logo off from the menu bar and it stays off, even after you restart.</p>
+            <p>Watching a film, or just want a stealthier Mac? Turn off the glowing Apple logo from the menu bar and it stays off, even after you restart.</p>
           </div>
         </article>
 
@@ -213,10 +270,37 @@
       </div>
       <p class="tiny">Needs a MacBook Pro with PROLED XDR Display and macOS 27 or later. To start it automatically, add it in System Settings → General → Login Items.</p>
     </section>
+
+    <!-- FAQ -->
+    <section class="faq" id="faq" aria-labelledby="faq-title">
+      <h2 id="faq-title" class="section-title">Questions.</h2>
+      <div class="faq-list">
+        <details class="glass">
+          <summary>How do I turn off the glowing Apple logo on my MacBook Pro?</summary>
+          <p>With LogoToggle, click its menu bar icon and choose <strong>Turn logo off</strong>. Without an app, you can use Apple's Terminal command; see <a href="turn-off-glowing-apple-logo-macbook-pro/">our step-by-step guide</a>.</p>
+        </details>
+        <details class="glass">
+          <summary>Can I change how bright the logo is?</summary>
+          <p>macOS doesn't have a brightness setting for the logo. It dims and brightens automatically with your screen brightness and the light in the room.</p>
+        </details>
+        <details class="glass">
+          <summary>Which Macs have the illuminated logo?</summary>
+          <p>MacBook Pro models with the PROLED XDR Display, running macOS 27 or later. On other Macs there's no logo light to control.</p>
+        </details>
+        <details class="glass">
+          <summary>Could a macOS update break it?</summary>
+          <p>Possibly. LogoToggle uses an undocumented part of macOS. If that changes, on/off falls back to Apple's documented command and the effects stop until there's an update.</p>
+        </details>
+        <details class="glass">
+          <summary>Why isn't it on the Mac App Store?</summary>
+          <p>App Store apps can't use undocumented system interfaces, which LogoToggle relies on.</p>
+        </details>
+      </div>
+    </section>
   </main>
 
   <footer class="footer">
-    <p>Built on research from <a href="https://github.com/Ark0N/LogoLight">LogoLight</a>. MIT licensed. <a href="https://github.com/JamesFergus2000/LogoToggle">Source on GitHub</a>.</p>
+    <p><a href="turn-off-glowing-apple-logo-macbook-pro/">How to turn off the glowing Apple logo</a> · Built on research from <a href="https://github.com/Ark0N/LogoLight">LogoLight</a>. MIT licensed. <a href="https://github.com/JamesFergus2000/LogoToggle">Source on GitHub</a>.</p>
     <p>Not affiliated with or endorsed by Apple Inc. MacBook Pro is a trademark of Apple Inc.</p>
   </footer>
 

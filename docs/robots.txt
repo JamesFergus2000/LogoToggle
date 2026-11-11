@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://jamesfergus2000.github.io/LogoToggle/sitemap.xml

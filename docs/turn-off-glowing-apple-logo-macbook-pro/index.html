@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>How to turn off the glowing Apple logo on MacBook Pro (2 ways)</title>
+  <meta name="description" content="Step-by-step: turn off, turn back on, or dim the illuminated Apple logo on the new MacBook Pro with PROLED XDR Display, using Apple's Terminal command or a free menu bar app.">
+  <link rel="canonical" href="https://jamesfergus2000.github.io/LogoToggle/turn-off-glowing-apple-logo-macbook-pro/">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#000000">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="LogoToggle">
+  <meta property="og:title" content="How to turn off the glowing Apple logo on MacBook Pro">
+  <meta property="og:description" content="Two ways to turn off (or back on) the illuminated logo on the new MacBook Pro.">
+  <meta property="og:url" content="https://jamesfergus2000.github.io/LogoToggle/turn-off-glowing-apple-logo-macbook-pro/">
+  <meta property="og:image" content="https://jamesfergus2000.github.io/LogoToggle/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://jamesfergus2000.github.io/LogoToggle/og-image.png">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="../favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "HowTo",
+        "name": "How to turn off the glowing Apple logo on MacBook Pro",
+        "description": "Turn off the illuminated Apple logo on a MacBook Pro with PROLED XDR Display using Terminal.",
+        "totalTime": "PT1M",
+        "tool": [{ "@type": "HowToTool", "name": "Terminal" }],
+        "step": [
+          { "@type": "HowToStep", "name": "Open Terminal", "text": "Open Terminal from Applications > Utilities, or search for it with Spotlight." },
+          { "@type": "HowToStep", "name": "Run the command", "text": "Type sudo defaults write com.apple.CoreBrightness LEBacklightMode -int 0 and press Return." },
+          { "@type": "HowToStep", "name": "Enter your password", "text": "Enter your Mac administrator password when asked. The logo turns off for every user on the Mac." }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "LogoToggle", "item": "https://jamesfergus2000.github.io/LogoToggle/" },
+          { "@type": "ListItem", "position": 2, "name": "Turn off the glowing Apple logo", "item": "https://jamesfergus2000.github.io/LogoToggle/turn-off-glowing-apple-logo-macbook-pro/" }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body data-mode="on">
+  <header class="nav-wrap">
+    <nav class="nav glass" aria-label="Main">
+      <a class="brand" href="../"><span class="brand-dot" aria-hidden="true"></span>LogoToggle</a>
+      <div class="nav-links">
+        <a href="../#modes">Modes</a>
+        <a href="../#install">Install</a>
+        <a href="https://github.com/JamesFergus2000/LogoToggle">GitHub</a>
+      </div>
+      <a class="btn btn-light btn-sm" href="../#install">Get the app</a>
+    </nav>
+  </header>
+
+  <main class="article">
+    <p class="crumbs"><a href="../">LogoToggle</a> › Guide</p>
+    <h1>How to turn off the glowing Apple logo on MacBook Pro</h1>
+    <p class="standfirst">The new MacBook Pro with PROLED XDR Display has an illuminated Apple logo on the back of the lid. It's on by default, and there's no switch for it in System Settings. Here are two ways to turn it off, and how to turn it back on.</p>
+
+    <h2>Method 1: Terminal (Apple's official way)</h2>
+    <p>Apple's support article "About the illuminated Apple logo on MacBook Pro with PROLED XDR Display" documents a Terminal command. You'll need an administrator password.</p>
+    <ol>
+      <li>Open <strong>Terminal</strong> (Applications › Utilities, or search for it with Spotlight).</li>
+      <li>Paste this command and press Return:</li>
+    </ol>
+    <div class="code">
+      <code id="cmd-off">sudo defaults write com.apple.CoreBrightness LEBacklightMode -int 0</code>
+      <button class="copy" type="button" data-copy="cmd-off">Copy</button>
+    </div>
+    <ol start="3">
+      <li>Type your Mac password when asked (nothing appears as you type) and press Return.</li>
+    </ol>
+    <p class="note">If the logo doesn't change straight away, log out and back in.</p>
+
+    <h3>Turn the logo back on</h3>
+    <div class="code">
+      <code id="cmd-on">sudo defaults delete com.apple.CoreBrightness LEBacklightMode</code>
+      <button class="copy" type="button" data-copy="cmd-on">Copy</button>
+    </div>
+
+    <h3>Things to know</h3>
+    <ul>
+      <li>The setting applies to <strong>every user account</strong> on the Mac, not just yours.</li>
+      <li><strong>Reinstalling macOS</strong> turns the logo back on.</li>
+      <li>There's no official way to set the logo's brightness. It dims and brightens automatically with your screen brightness and the ambient light in the room.</li>
+    </ul>
+
+    <h2>Method 2: LogoToggle (one click, from the menu bar)</h2>
+    <p>If you'd rather not use Terminal every time, LogoToggle is a free, open-source menu bar app that does it in one click. It can also make the logo <strong>breathe</strong> with smooth fades, or <strong>strobe</strong>.</p>
+    <div class="callout glass">
+      <h2>Install LogoToggle in one line</h2>
+      <p>Paste into Terminal. It downloads the app, installs it into Applications and opens it.</p>
+      <div class="code">
+        <code id="cmd-install">curl -fsSL https://jamesfergus2000.github.io/LogoToggle/install.sh | sh</code>
+        <button class="copy" type="button" data-copy="cmd-install">Copy</button>
+      </div>
+      <div class="cta-row">
+        <a class="btn btn-light" href="../">See what it does</a>
+        <a class="btn btn-glass" href="https://github.com/JamesFergus2000/LogoToggle">View the source</a>
+      </div>
+    </div>
+
+    <h2>Frequently asked questions</h2>
+    <h3>Does turning off the logo save battery?</h3>
+    <p>It uses a little power while lit, so turning it off saves a small amount. Don't expect a noticeable difference in battery life.</p>
+    <h3>Does the logo turn off when the lid is closed or the Mac is asleep?</h3>
+    <p>Yes. The logo follows the display, so it goes dark when the display sleeps or the lid is closed.</p>
+    <h3>Which Macs have the glowing logo?</h3>
+    <p>MacBook Pro models with the PROLED XDR Display, running macOS 27 or later.</p>
+  </main>
+
+  <footer class="footer">
+    <p><a href="../">LogoToggle</a> · Free and open source · <a href="https://github.com/JamesFergus2000/LogoToggle">GitHub</a></p>
+    <p>Not affiliated with or endorsed by Apple Inc. Apple, MacBook Pro and the Apple logo are trademarks of Apple Inc.</p>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.copy').forEach((btn) => {
+      btn.addEventListener('click', async () => {
+        const text = document.getElementById(btn.dataset.copy).textContent;
+        try { await navigator.clipboard.writeText(text); btn.textContent = 'Copied'; }
+        catch { btn.textContent = 'Select & copy'; }
+        setTimeout(() => (btn.textContent = 'Copy'), 1600);
+      });
+    });
+  </script>
+</body>
+</html>
