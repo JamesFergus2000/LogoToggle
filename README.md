@@ -19,6 +19,14 @@ It's a single Swift file with no dependencies, and it lives only in the menu bar
 
 ## Install
 
+### One-line install (easiest)
+
+Paste this into Terminal. It downloads the latest release, installs it into Applications and opens it, with no Gatekeeper prompt:
+
+```sh
+curl -fsSL https://jamesfergus2000.github.io/LogoToggle/install.sh | sh
+```
+
 ### Download
 
 1. Download `LogoToggle.zip` from [Releases](../../releases) and unzip it.
