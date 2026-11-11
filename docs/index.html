@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>LogoToggle — light up the back of your MacBook Pro</title>
-  <meta name="description" content="A tiny, free menu bar app to turn the illuminated logo on the new MacBook Pro on or off, make it breathe, or strobe. No password needed.">
+  <meta name="description" content="A tiny, free menu bar app to turn the illuminated logo on the new MacBook Pro on or off, make it breathe, or strobe.">
   <meta name="theme-color" content="#000000">
   <meta property="og:title" content="LogoToggle">
   <meta property="og:description" content="On, off, breathe or strobe the illuminated logo on the new MacBook Pro, straight from the menu bar.">
@@ -39,21 +39,81 @@
     <section class="hero" id="top">
       <p class="eyebrow">For MacBook Pro with PROLED XDR Display</p>
       <h1>Light it up.<br>From behind.</h1>
-      <p class="lede">A tiny menu bar app for the glowing logo on the new MacBook Pro. On, off, breathe or strobe. No password.</p>
+      <p class="lede">A tiny menu bar app for the glowing logo on the new MacBook Pro. On, off, breathe or strobe.</p>
 
       <div class="stage" id="stage" aria-hidden="true">
-        <div class="floor"></div>
-        <div class="laptop" id="laptop">
-          <div class="lid">
-            <div class="face back">
-              <!-- Swap this element for your own lid photo/video if you like -->
-              <div class="mark light"></div>
-            </div>
-            <div class="face front"><div class="screen"></div></div>
-          </div>
-          <div class="base"><div class="keys"></div><div class="pad"></div></div>
-          <div class="edge"></div>
-        </div>
+        <div class="floor light"></div>
+        <svg class="mbp" viewBox="0 0 640 486" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <!-- Space Black anodised aluminium -->
+            <linearGradient id="alu" x1="0" y1="0" x2="0.35" y2="1">
+              <stop offset="0" stop-color="#3a393d"/>
+              <stop offset="0.45" stop-color="#262528"/>
+              <stop offset="1" stop-color="#19181b"/>
+            </linearGradient>
+            <!-- soft sheen across the lid -->
+            <linearGradient id="sheen" x1="0" y1="0" x2="1" y2="0.6">
+              <stop offset="0" stop-color="#fff" stop-opacity="0.10"/>
+              <stop offset="0.35" stop-color="#fff" stop-opacity="0.02"/>
+              <stop offset="0.7" stop-color="#fff" stop-opacity="0"/>
+              <stop offset="1" stop-color="#fff" stop-opacity="0.05"/>
+            </linearGradient>
+            <!-- chamfered edge highlight -->
+            <linearGradient id="rim" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#8a898e" stop-opacity="0.9"/>
+              <stop offset="0.5" stop-color="#4a494d" stop-opacity="0.6"/>
+              <stop offset="1" stop-color="#2a292c" stop-opacity="0.8"/>
+            </linearGradient>
+            <linearGradient id="hinge" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#0c0c0d"/>
+              <stop offset="0.5" stop-color="#232225"/>
+              <stop offset="1" stop-color="#0e0e0f"/>
+            </linearGradient>
+            <linearGradient id="base" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#4b4a4f"/>
+              <stop offset="0.25" stop-color="#2c2b2e"/>
+              <stop offset="1" stop-color="#161517"/>
+            </linearGradient>
+            <!-- light falling on the lid from the glowing mark -->
+            <radialGradient id="spill" cx="0.5" cy="0.5" r="0.5">
+              <stop offset="0" stop-color="#fff3e2" stop-opacity="0.22"/>
+              <stop offset="1" stop-color="#fff3e2" stop-opacity="0"/>
+            </radialGradient>
+            <radialGradient id="mark" cx="0.5" cy="0.5" r="0.5">
+              <stop offset="0" stop-color="#ffffff"/>
+              <stop offset="0.35" stop-color="#fffaf2"/>
+              <stop offset="0.7" stop-color="#ffe9cc" stop-opacity="0.35"/>
+              <stop offset="1" stop-color="#ffe9cc" stop-opacity="0"/>
+            </radialGradient>
+            <filter id="bloom" x="-1" y="-1" width="3" height="3">
+              <feGaussianBlur stdDeviation="14"/>
+            </filter>
+          </defs>
+
+          <!-- lid: 14" MBP back is 312.6 x 221.2 mm (ratio 1.413) -->
+          <rect x="20" y="8" width="600" height="424.6" rx="22" fill="url(#alu)"/>
+          <rect x="20" y="8" width="600" height="424.6" rx="22" fill="url(#sheen)"/>
+          <rect x="20.75" y="8.75" width="598.5" height="423.1" rx="21.3" fill="none" stroke="url(#rim)" stroke-width="1.5"/>
+          <g class="light">
+            <ellipse cx="320" cy="220" rx="230" ry="190" fill="url(#spill)"/>
+          </g>
+
+          <!-- hinge -->
+          <rect x="70" y="430" width="500" height="14" rx="7" fill="url(#hinge)"/>
+
+          <!-- base, seen from behind -->
+          <path d="M8 444 H632 Q636 444 636 448 V462 Q636 474 624 474 H16 Q4 474 4 462 V448 Q4 444 8 444 Z" fill="url(#base)"/>
+          <path d="M10 444.8 H630" stroke="#77767b" stroke-opacity="0.7" stroke-width="1.2"/>
+          <!-- feet -->
+          <rect x="60" y="474" width="56" height="4" rx="2" fill="#0b0b0c"/>
+          <rect x="524" y="474" width="56" height="4" rx="2" fill="#0b0b0c"/>
+
+          <!-- the light (abstract mark; swap for your own lid photo if you like) -->
+          <g class="light">
+            <circle cx="320" cy="214" r="62" fill="url(#mark)" filter="url(#bloom)"/>
+            <circle cx="320" cy="214" r="34" fill="url(#mark)"/>
+          </g>
+        </svg>
       </div>
 
       <div class="cta-row">
@@ -71,7 +131,7 @@
       <div class="demo-copy">
         <p class="eyebrow eyebrow-blue">Try it</p>
         <h2 id="demo-title">Click here.<br>Glow there.</h2>
-        <p>Everything lives in one menu bar menu. Pick a mode and watch the laptop above, or the light behind the glass.</p>
+        <p>Everything lives in one menu bar menu. Pick a mode and watch the MacBook above, or the light behind the glass.</p>
         <p class="warn" id="strobe-warn" hidden>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 9v4"/><path d="M12 17h.01"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg>
           Strobe flashes. This demo runs it slowly; take care if you're sensitive to flashing light.
@@ -93,7 +153,7 @@
           <button class="mi" data-set="breathe" type="button">Breathe <span>Slow · Med · Fast</span></button>
           <button class="mi" data-set="strobe" type="button">Strobe <span>Slow · Med · Fast</span></button>
           <div class="menu-sep"></div>
-          <div class="menu-foot">No password. No Dock icon.</div>
+          <div class="menu-foot">Lives in your menu bar.</div>
         </div>
       </div>
     </section>
@@ -104,8 +164,8 @@
       <div class="bento">
         <article class="tile glass tile-wide">
           <p class="eyebrow">On and off</p>
-          <h3>One click.<br>No password.</h3>
-          <p>LogoToggle talks straight to the macOS brightness service, so there's no admin prompt every time you flip it.</p>
+          <h3>One click.<br>On or off.</h3>
+          <p>Turn the logo on or off straight from the menu bar, whenever you like.</p>
         </article>
         <article class="tile glass">
           <div class="mini mini-breathe" aria-hidden="true"></div>
@@ -175,7 +235,7 @@
         </details>
         <details class="glass">
           <summary>Why isn't it on the Mac App Store?</summary>
-          <p>Apps on the App Store can't use private system interfaces, which is the only way to control the logo without a password.</p>
+          <p>Apps on the App Store can't use private system interfaces, which LogoToggle relies on.</p>
         </details>
         <details class="glass">
           <summary>Can I set the logo's brightness?</summary>

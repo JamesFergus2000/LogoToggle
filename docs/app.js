@@ -2,7 +2,7 @@
   const body = document.body;
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // ---- light modes: the demo menu drives the hero laptop and the demo glow ----
+  // ---- light modes: the demo menu drives the hero MacBook and the demo glow ----
   const labels = {
     on: 'Logo light is on',
     off: 'Logo light is off',
@@ -22,32 +22,15 @@
   items.forEach((b) => b.addEventListener('click', () => setMode(b.dataset.set)));
   setMode('breathe');
 
-  // ---- 3D laptop: gentle idle sway, tilts toward the pointer ----
-  const laptop = document.getElementById('laptop');
-  const stage = document.getElementById('stage');
-  if (laptop && !reduceMotion) {
-    let pointerActive = false;
-    let t0 = performance.now();
-    const sway = (t) => {
-      if (!pointerActive) {
-        const s = Math.sin((t - t0) / 3200);
-        laptop.style.setProperty('--ry', `${(s * 24).toFixed(2)}deg`);
-        laptop.style.setProperty('--rx', `${(8 + Math.cos((t - t0) / 4100) * 2).toFixed(2)}deg`);
-      }
-      requestAnimationFrame(sway);
+  // ---- hero: the Mac rises gently into place as you scroll ----
+  const mbp = document.querySelector('.mbp');
+  if (mbp && !reduceMotion) {
+    const onScroll = () => {
+      const p = Math.min(1, window.scrollY / 500);
+      mbp.style.transform = `translateY(${(p * -24).toFixed(1)}px) scale(${(1 + p * 0.04).toFixed(3)})`;
     };
-    laptop.style.transition = 'transform .25s ease-out';
-    requestAnimationFrame(sway);
-
-    stage.parentElement.addEventListener('pointermove', (e) => {
-      const r = stage.getBoundingClientRect();
-      const x = (e.clientX - (r.left + r.width / 2)) / r.width;
-      const y = (e.clientY - (r.top + r.height / 2)) / r.height;
-      pointerActive = true;
-      laptop.style.setProperty('--ry', `${(x * 50).toFixed(2)}deg`);
-      laptop.style.setProperty('--rx', `${(8 - y * 12).toFixed(2)}deg`);
-    });
-    stage.parentElement.addEventListener('pointerleave', () => { pointerActive = false; });
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
   }
 
   // ---- menu bar clock ----
