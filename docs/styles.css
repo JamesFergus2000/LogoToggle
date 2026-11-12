@@ -65,6 +65,7 @@ body[data-mode="on"] .light { opacity: 1; }
 body[data-mode="off"] .light { opacity: .03; }
 body[data-mode="breathe"] .light { animation: breathe var(--breathe) ease-in-out infinite; }
 body[data-mode="strobe"] .light { animation: strobe .8s steps(1) infinite; }
+body[data-mode="clap"] .light { animation: strobe 3.6s steps(1) infinite reverse; }
 @keyframes breathe { 0%, 100% { opacity: .08; } 50% { opacity: 1; } }
 @keyframes strobe { 0% { opacity: 1; } 50% { opacity: .03; } }
 
@@ -149,7 +150,7 @@ body[data-mode="strobe"] .light { animation: strobe .8s steps(1) infinite; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .light, .scroll-hint svg { animation: none !important; }
-  body[data-mode="breathe"] .light, body[data-mode="strobe"] .light { opacity: .8; }
+  body[data-mode="breathe"] .light, body[data-mode="strobe"] .light, body[data-mode="clap"] .light { opacity: .8; }
   .card { transition: none; transform: none; }
 }
 
@@ -316,6 +317,7 @@ body[data-section="install"] .panel { opacity: 0; transform: translateY(-46%) sc
 body[data-mode="off"] .status-dot { opacity: .15; box-shadow: none; }
 body[data-mode="breathe"] .status-dot { animation: breathe var(--breathe) ease-in-out infinite; }
 body[data-mode="strobe"] .status-dot { animation: strobe .8s steps(1) infinite; }
+body[data-mode="clap"] .status-dot { animation: strobe 3.6s steps(1) infinite reverse; }
 
 .rows { position: relative; padding: 6px; }
 .sel-pill { position: absolute; left: 6px; right: 6px; top: 0; height: 40px; border-radius: 12px; opacity: 0;

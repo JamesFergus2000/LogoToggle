@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>LogoToggle: turn off the glowing Apple logo on MacBook Pro</title>
-  <meta name="description" content="Free menu bar app for the glowing Apple logo on the 14 and 16-inch MacBook Pro with PROLED XDR Display. Turn it off or on in one click, breathe or strobe.">
+  <meta name="description" content="Free menu bar app for the glowing Apple logo on the 14 and 16-inch MacBook Pro with PROLED XDR Display. Turn it off or on in one click or with a double clap, breathe or strobe.">
     <link rel="canonical" href="https://jamesfergus2000.github.io/LogoToggle/">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <meta name="theme-color" content="#000000">
@@ -14,7 +14,7 @@
   <meta property="og:site_name" content="LogoToggle">
   <meta property="og:locale" content="en_GB">
   <meta property="og:title" content="LogoToggle: control the glowing Apple logo on MacBook Pro">
-  <meta property="og:description" content="Turn the illuminated logo on the MacBook Pro with PROLED XDR Display off or on in one click, or make it breathe or strobe. Free and open source.">
+  <meta property="og:description" content="Turn the illuminated logo on the MacBook Pro with PROLED XDR Display off or on in one click or with a double clap, or make it breathe or strobe. Free and open source.">
   <meta property="og:url" content="https://jamesfergus2000.github.io/LogoToggle/">
   <meta property="og:image" content="https://jamesfergus2000.github.io/LogoToggle/og-image.png">
   <meta property="og:image:width" content="1200">
@@ -22,7 +22,7 @@
   <meta property="og:image:alt" content="LogoToggle: control the glowing logo on MacBook Pro">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="LogoToggle: control the glowing Apple logo on MacBook Pro">
-  <meta name="twitter:description" content="On, off, breathe or strobe the illuminated logo on the MacBook Pro with PROLED XDR Display, from the menu bar. Free and open source.">
+  <meta name="twitter:description" content="On, off, breathe or strobe the illuminated logo on the MacBook Pro with PROLED XDR Display, from the menu bar or with a double clap. Free and open source.">
   <meta name="twitter:image:alt" content="LogoToggle: control the glowing logo on MacBook Pro">
   <meta name="twitter:image" content="https://jamesfergus2000.github.io/LogoToggle/og-image.png">
 
@@ -52,12 +52,13 @@
         "applicationSubCategory": "Menu bar app",
         "operatingSystem": "macOS 27 or later",
         "softwareRequirements": "14-inch or 16-inch MacBook Pro with PROLED XDR Display (M5 Pro or M5 Max)",
-        "softwareVersion": "1.0.0",
+        "softwareVersion": "1.1.0",
         "featureList": [
           "Turn the illuminated Apple logo off",
           "Turn the illuminated Apple logo on",
           "Breathe: smooth fades at three speeds",
-          "Strobe: flashing at three speeds"
+          "Strobe: flashing at three speeds",
+          "Clap control: clap twice to switch the logo on or off"
         ],
         "license": "https://opensource.org/licenses/MIT",
         "isAccessibleForFree": true,
@@ -107,6 +108,14 @@
             "acceptedAnswer": {
               "@type": "Answer",
               "text": "macOS doesn't have a brightness setting for the logo. It dims and brightens automatically with your screen brightness and the light in the room."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I turn the logo on and off by clapping?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Tick Clap twice to toggle in the menu, allow microphone access, and a double clap switches the logo on or off. It's off by default. While it's on, LogoToggle only measures how loud the microphone is to spot two sharp claps; nothing is recorded, saved or sent anywhere, and it stops listening when the display sleeps."
             }
           },
           {
@@ -240,6 +249,7 @@
         <div class="step" data-mode="on" data-step="2"></div>
         <div class="step" data-mode="breathe" data-step="3"></div>
         <div class="step" data-mode="strobe" data-step="4"></div>
+        <div class="step" data-mode="clap" data-step="5"></div>
       </div>
 
       <!-- One liquid-glass panel that morphs as you scroll -->
@@ -248,7 +258,7 @@
           <div class="pc on" data-for="0">
             <h1 class="eyebrow-pill">Glowing logo control for MacBook Pro</h1>
             <p class="hero-title">Light it up.<br>From behind.</p>
-            <p class="pc-body">LogoToggle is a free menu bar app for the glowing Apple logo on the new MacBook Pro with PROLED XDR Display. Turn it off, turn it on, make it breathe or make it strobe.</p>
+            <p class="pc-body">LogoToggle is a free menu bar app for the glowing Apple logo on the new MacBook Pro with PROLED XDR Display. Turn it off, turn it on, make it breathe or make it strobe. Or just clap twice.</p>
             <div class="cta-row">
               <a class="btn btn-light" href="#install">Install LogoToggle</a>
               <a class="btn btn-glass" href="https://github.com/JamesFergus2000/LogoToggle">View on GitHub</a>
@@ -274,6 +284,11 @@
             <h2>Or make it flash.</h2>
             <p class="pc-body">Hard on, hard off, up to four times a second. Perfect for a party, less so for a meeting.</p>
           </div>
+          <div class="pc" data-for="5">
+            <p class="pc-num">05 · Clap</p>
+            <h2>Clap on. Clap off.</h2>
+            <p class="pc-body">Tick <strong>Clap twice to toggle</strong> and a double clap switches the logo from across the room. It's off until you turn it on, and nothing is ever recorded.</p>
+          </div>
         </div>
 
         <div class="panel-menu">
@@ -294,12 +309,13 @@
                 </div>
               </div>
               <button class="row" type="button" data-row="strobe" data-go="4">Strobe <span aria-hidden="true">›</span></button>
+              <button class="row" type="button" data-row="clap" data-go="5">Clap twice to toggle</button>
             </div>
           </div>
         </div>
 
         <div class="panel-foot">
-          <div class="progress" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+          <div class="progress" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
           <span class="panel-hint" id="panel-hint">Scroll to explore</span>
         </div>
       </aside>
@@ -327,7 +343,7 @@
         </div>
         <div class="tile glass">
           <h3>Build it yourself</h3>
-          <p>One Swift file, about 250 lines, no dependencies. Needs the Xcode Command Line Tools.</p>
+          <p>One Swift file, about 450 lines, no dependencies. Needs the Xcode Command Line Tools.</p>
           <div class="code">
             <code id="cmd-build">git clone https://github.com/JamesFergus2000/LogoToggle.git &amp;&amp; cd LogoToggle &amp;&amp; ./build.sh --install</code>
             <button class="copy" type="button" data-copy="cmd-build">Copy</button>
@@ -373,6 +389,10 @@
         <details class="glass">
           <summary>Can I change how bright the logo is?</summary>
           <p>macOS doesn't have a brightness setting for the logo. It dims and brightens automatically with your screen brightness and the light in the room.</p>
+        </details>
+        <details class="glass">
+          <summary>Can I turn the logo on and off by clapping?</summary>
+          <p>Yes. Tick <strong>Clap twice to toggle</strong> in the menu, allow microphone access, and a double clap switches the logo on or off. It's off by default. While it's on, LogoToggle only measures how loud the microphone is to spot two sharp claps; nothing is recorded, saved or sent anywhere, and it stops listening when the display sleeps.</p>
         </details>
         <details class="glass">
           <summary>Which MacBook Pro does LogoToggle work with?</summary>

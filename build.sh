@@ -4,7 +4,7 @@
 set -euo pipefail
 cd "$(dirname "$0")"
 APP="build/LogoToggle.app"
-VERSION="${VERSION:-1.0.0}"
+VERSION="${VERSION:-1.1.0}"
 rm -rf "$APP"
 mkdir -p "$APP/Contents/MacOS"
 swiftc -O main.swift -o "$APP/Contents/MacOS/LogoToggle"
@@ -19,6 +19,7 @@ cat > "$APP/Contents/Info.plist" <<PLIST
   <key>CFBundleShortVersionString</key><string>$VERSION</string>
   <key>CFBundleVersion</key><string>$VERSION</string>
   <key>LSUIElement</key><true/>
+  <key>NSMicrophoneUsageDescription</key><string>LogoToggle listens for a double clap to switch the logo light. Audio is never recorded or sent anywhere.</string>
 </dict></plist>
 PLIST
 codesign --force --sign - "$APP"

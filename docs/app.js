@@ -15,7 +15,7 @@
   const progress = [...panel.querySelectorAll('.progress i')];
   const reveals = [...panel.querySelectorAll('.reveal-wrap')];
 
-  const STATUS = { off: 'Logo light is off', on: 'Logo light is on', breathe: 'Breathe', strobe: 'Strobe (slow)' };
+  const STATUS = { off: 'Logo light is off', on: 'Logo light is on', breathe: 'Breathe', strobe: 'Strobe (slow)', clap: 'Listening for claps' };
   let current = -1;
   let breatheSpeed = 'medium';
 
@@ -56,7 +56,7 @@
     reveals.forEach((r) => r.classList.toggle('open', r.dataset.show === String(i)));
     progress.forEach((p, n) => p.classList.toggle('on', n < i));
     setStatus(mode === 'breathe' ? `Breathe (${breatheSpeed})` : STATUS[mode]);
-    hint.textContent = i === 0 ? 'Scroll to explore' : `${i} of 4`;
+    hint.textContent = i === 0 ? 'Scroll to explore' : `${i} of 5`;
     // Wait for the menu / reveals to start opening before measuring rows.
     requestAnimationFrame(movePill);
     setTimeout(movePill, 360);

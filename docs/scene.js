@@ -29,6 +29,7 @@ const SHOTS = {
   on:      [24, 12, 1.0],
   breathe: [-16, 8, 0.85],
   strobe:  [32, 18, 1.1],
+  clap:    [-24, 16, 1.05],
   outro:   [-42, 22, 1.5],   // behind the install section: calm and wide
 };
 
@@ -153,6 +154,7 @@ async function init() {
     if (mode === 'on') return 1;
     if (reduceMotion) return 0.8;
     if (mode === 'strobe') return Math.floor(t / 400) % 2 === 0 ? 1 : 0;
+    if (mode === 'clap') return Math.floor(t / 1800) % 2 === 0 ? 0 : 1;   // a double clap every 1.8 s
     const p = (t % breathePeriod()) / breathePeriod();
     return 0.04 + 0.96 * (0.5 - 0.5 * Math.cos(p * Math.PI * 2));
   }

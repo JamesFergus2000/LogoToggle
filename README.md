@@ -8,7 +8,7 @@
 
 <p align="center">
   A free menu bar app for the glowing Apple logo on the MacBook Pro with PROLED XDR Display.<br>
-  Turn it off, turn it on, make it breathe or make it strobe.
+  Turn it off, turn it on, make it breathe or make it strobe. Or just clap twice.
 </p>
 
 <p align="center">
@@ -46,6 +46,7 @@ Other ways to install are [further down](#other-ways-to-install).
 | **On** | The glow comes back. It still follows your screen brightness and the light in the room, as macOS intended. |
 | **Breathe** | A smooth fade in and out, using the light's own hardware fades. Slow, medium or fast. |
 | **Strobe** | Hard on, hard off, up to about four times a second. Slow, medium or fast. |
+| **Clap** | Optional. Clap twice and the logo switches on or off. |
 
 It's one Swift file with no dependencies, and it lives only in the menu bar (no Dock icon).
 
@@ -76,6 +77,9 @@ Click the LogoToggle icon in the menu bar:
 
 - **Turn logo off / Turn logo on** switches the light.
 - **Breathe** and **Strobe** each open a submenu with Slow, Medium and Fast.
+- **Clap twice to toggle** turns clap control on or off. macOS asks for microphone access the first
+  time. Then clap twice in quick succession to switch the logo. If breathe or strobe is
+  running, a double clap stops it and leaves the logo off.
 - **Quit** closes the app.
 
 To start it automatically, add it under **System Settings → General → Login Items**.
@@ -110,6 +114,11 @@ Apps you build yourself aren't quarantined, so there's no Gatekeeper prompt.
 **Can I change how bright the logo is?**
 No. macOS has no brightness setting for the logo. It dims and brightens automatically with your
 screen brightness and the light in the room.
+
+**Is clap control recording me?**
+No. It's off until you tick it in the menu. While it's on, LogoToggle only measures how loud the
+microphone is, in memory, to spot two sharp claps. Nothing is saved or sent anywhere, and it stops
+listening when the display sleeps. macOS shows its orange microphone dot while it's listening.
 
 **Could a macOS update break it?**
 Possibly. LogoToggle uses an undocumented part of macOS. If that changes, on/off falls back to
