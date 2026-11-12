@@ -14,8 +14,12 @@ It's a single Swift file with no dependencies, and it lives only in the menu bar
 
 ## Requirements
 
-- A MacBook Pro with the illuminated logo (PROLED XDR Display)
-- macOS 27 or later, Apple silicon
+- A MacBook Pro with PROLED XDR Display: the 14-inch or 16-inch model with the M5 Pro or M5 Max chip.
+  It's the only Mac with an illuminated logo.
+- macOS 27 or later
+
+It doesn't do anything on the MacBook Pro with Liquid Retina XDR display, the MacBook Air or any
+other Mac, because the logo on those doesn't light up.
 
 ## Install
 
